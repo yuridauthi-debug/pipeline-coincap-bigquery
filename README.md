@@ -23,14 +23,15 @@ Antes de executar, certifique-se de ter:
    ```bash
    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
    cd seu-repositorio
-Crie um ambiente virtual e instale as dependências:
+2. **Crie um ambiente virtual e instale as dependências:**
 
-Bash
+```bash
 
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-Configure as Variáveis de Ambiente:
+```
+2. **Configure as Variáveis de Ambiente:**
 Crie um arquivo .env na raiz do projeto com as seguintes informações:
 
 Snippet de código
