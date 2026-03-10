@@ -1,6 +1,6 @@
 # Pipeline de Dados: CoinCap para BigQuery
 
-Este projeto automatiza a extração de dados de criptomoedas da API [CoinCap](https://coincap.io/) e realiza a carga (ETL) diretamente para o Google BigQuery. O pipeline é seguro, utilizando o **Google Secret Manager** para gerenciar chaves de API e credenciais de conta de serviço.
+Este projeto automatiza a extração de dados de criptomoedas da API [CoinCap](https://pro.coincap.io/api-docs) e realiza a carga (ETL) diretamente para o Google BigQuery. O pipeline é seguro, utilizando o **Google Secret Manager** para gerenciar chaves de API e credenciais de conta de serviço.
 
 
 
