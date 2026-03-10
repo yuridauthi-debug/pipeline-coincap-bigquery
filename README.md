@@ -24,36 +24,33 @@ Antes de executar, certifique-se de ter:
    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
    cd seu-repositorio
 2. **Crie um ambiente virtual e instale as dependências:**
-
-```bash
-
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-2. **Configure as Variáveis de Ambiente:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+3. **Configure as Variáveis de Ambiente:**
 Crie um arquivo .env na raiz do projeto com as seguintes informações:
 
-Snippet de código
+```Snippet de código
 
 API_KEY_SECRET_NAME=projects/seu-projeto/secrets/NOME_DA_API_KEY/versions/latest
 GCP_SA_KEY_SECRET_NAME=projects/seu-projeto/secrets/NOME_DA_SA/versions/latest
 GCP_PROJECT_ID=seu-projeto-id
 BIGQUERY_DATASET=seu_dataset_id
-🚀 Como Executar
+```
+## 🚀 Como Executar
 Após configurar o ambiente e as variáveis, execute o pipeline com:
 
-Bash
+```Bash
 
 python3 main.py
-📂 Estrutura do Banco de Dados
+```
+## 📂 Estrutura do Banco de Dados
 O script realiza a carga nas seguintes tabelas no BigQuery:
+* `tb_criptomoedas_disponiveis`: Lista de todos os ativos.
+* `tb_bitcoin_mercado`: Histórico de preços do Bitcoin.
 
-tb_criptomoedas_disponiveis: Lista de todos os ativos.
+> **Nota:** Ambas as tabelas utilizam `CLUSTER BY symbol` para otimizar o custo e a performance das consultas.
 
-tb_bitcoin_mercado: Histórico de preços do Bitcoin.
-
-Nota: Ambas as tabelas utilizam CLUSTER BY symbol para otimizar o custo e a performance das consultas.
-
-🤝 Contribuições
+##🤝 Contribuições
 Sinta-se à vontade para abrir Issues ou enviar Pull Requests para melhorias no pipeline!
