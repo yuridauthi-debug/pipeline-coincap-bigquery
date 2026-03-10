@@ -1,0 +1,11 @@
+# .gitignore
+venv/
+.env
+*.json
+__pycache__/
+.DS_Store
+.cache/
+.cloud-code/
+.vscode/
+.codeoss/
+.bash_history
