@@ -77,6 +77,15 @@ CREATE OR REPLACE TABLE `seu-projeto.seu_dataset.tb_bitcoin_mercado` (
 PARTITION BY TIMESTAMP_TRUNC(date, MONTH)
 CLUSTER BY date;
 ```
+## Usando outras métodos
+Para utilizar outros métodos da API pode utilizar a chamada
+```Modificação
+fetch_from_coincap({endpoint}, api_key)
+```
+Modificando o `endpoint` por outro método que se encontra na documentação da API.
 
-##🤝 Contribuições
-Sinta-se à vontade para abrir Issues ou enviar Pull Requests para melhorias no pipeline!
+Para carga na tabela no BigQuery utilizar a chamada
+```Modificação
+load_data_to_bigquery({resultado_do_fetch_from_coincap}, credentials, {nome_tabela})
+```
+Para a criação da tabela verificar a estrutura da resposta para o método esta na documentação da API.
