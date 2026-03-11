@@ -68,7 +68,7 @@ CREATE OR REPLACE TABLE `seu-projeto.seu_dataset.tb_criptomoedas_disponiveis` (
 )
 CLUSTER BY symbol;
 
-CREATE OR REPLACE TABLE `seu-projeto.seu_dataset.tb_bitcoin_historico` (
+CREATE OR REPLACE TABLE `seu-projeto.seu_dataset.tb_bitcoin_mercado` (
     circulatingSupply INTEGER OPTIONS(description="Quantidade em circulação no momento do registro"),
     priceUsd STRING OPTIONS(description="Preço em Dólares americanos no momento do registro"),
     time INTEGER OPTIONS(description="Timestamp (Unix epoch) do registro"),
