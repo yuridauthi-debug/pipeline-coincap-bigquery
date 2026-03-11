@@ -50,7 +50,33 @@ O script realiza a carga nas seguintes tabelas no BigQuery:
 * `tb_criptomoedas_disponiveis`: Lista de todos os ativos.
 * `tb_bitcoin_mercado`: Histórico de preços do Bitcoin.
 
-> **Nota:** Ambas as tabelas utilizam `CLUSTER BY symbol` para otimizar o custo e a performance das consultas.
+```Script de criação
+
+CREATE OR REPLACE TABLE `seu-projeto.seu_dataset.tb_criptomoedas_disponiveis` (
+    id STRING OPTIONS(description="Identificador único da criptomoeda"),
+    rank STRING OPTIONS(description="Posição no ranking de capitalização de mercado"),
+    symbol STRING OPTIONS(description="Símbolo da criptomoeda (ex: BTC, ETH)"),
+    name STRING OPTIONS(description="Nome completo da criptomoeda"),
+    supply STRING OPTIONS(description="Quantidade circulante atual da moeda"),
+    maxSupply STRING OPTIONS(description="Quantidade máxima que existirá da moeda"),
+    marketCapUsd STRING OPTIONS(description="Capitalização de mercado em Dólares americanos"),
+    volumeUsd24Hr STRING OPTIONS(description="Volume negociado nas últimas 24 horas em USD"),
+    priceUsd STRING OPTIONS(description="Preço atual em Dólares americanos"),
+    changePercent24Hr STRING OPTIONS(description="Percentual de variação nas últimas 24 horas"),
+    vwap24Hr STRING OPTIONS(description="Preço médio ponderado pelo volume nas últimas 24 horas"),
+    explorer STRING OPTIONS(description="Link para o explorador de blocos da moeda")
+)
+CLUSTER BY symbol;
+
+CREATE OR REPLACE TABLE `seu-projeto.seu_dataset.tb_bitcoin_historico` (
+    circulatingSupply INTEGER OPTIONS(description="Quantidade em circulação no momento do registro"),
+    priceUsd STRING OPTIONS(description="Preço em Dólares americanos no momento do registro"),
+    time INTEGER OPTIONS(description="Timestamp (Unix epoch) do registro"),
+    date TIMESTAMP OPTIONS(description="Data e hora do registro em formato ISO 8601")
+)
+PARTITION BY TIMESTAMP_TRUNC(date, MONTH)
+CLUSTER BY date;
+```
 
 ##🤝 Contribuições
 Sinta-se à vontade para abrir Issues ou enviar Pull Requests para melhorias no pipeline!
